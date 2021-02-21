@@ -1,0 +1,835 @@
+<script src="https://mozilla.github.io/nunjucks/files/nunjucks.min.js"></script>
+<script>
+  const page = String.raw`
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <link rel="preload" href="https://use.typekit.net/vls8zoa.css">
+      <style lang="css">
+          @media print {
+              @page {
+                  size: landscape;
+              }
+          }
+
+          body {
+              --input-color: white;
+              font-family: muli, sans-serif;
+              font-weight: 400;
+              font-style: normal;
+              font-size: 11px;
+              background-color: #d8f2e9;
+              height: 100vh;
+              width: 100vw;
+              margin: 0;
+          }
+
+          b {
+              font-weight: 900;
+          }
+
+          h1 {
+              font-weight: 900;
+          }
+
+          .nowrap {
+              white-space: nowrap;
+          }
+
+          .flex-nowrap {
+              display: flex;
+              flex-wrap: nowrap;
+          }
+
+          .page-content {
+              padding: 10px 20px;
+          }
+
+          .w-100 {
+              width: 100%;
+          }
+
+          .w-50 {
+              width: 50%;
+          }
+
+          .w-33 {
+              width: 33%;
+          }
+
+          .w-66 {
+              width: 66%;
+          }
+
+          .w-50-separator-sm {
+              width: 5px;
+              flex-shrink: 0;
+          }
+
+          .w-50-separator-lg {
+              width: 20px;
+              flex-shrink: 0;
+          }
+
+          .h-80px {
+              height: 80px !important;
+          }
+
+          .border-separator-lg {
+              border-bottom: 5px solid black;
+          }
+
+          .border-separator-sm {
+              border-bottom: 1px solid black;
+          }
+
+          .margin-top-lg {
+              margin-top: 20px;
+          }
+
+          .margin-top-sm {
+              margin-top: 10px;
+          }
+
+          .margin-right-lg {
+              margin-right: 20px;
+          }
+
+          .margin-right-sm {
+              margin-right: 10px;
+          }
+
+          .vertical-bottom {
+              vertical-align: bottom;
+          }
+
+          .vertical-top {
+              vertical-align: top;
+          }
+
+          .table-auto {
+              table-layout: auto;
+              width: 100%;
+              text-align: left;
+          }
+
+          .table-fixed {
+              table-layout: fixed;
+              width: 100%;
+              text-align: left;
+          }
+
+          .page-header {
+              display: flex;
+              justify-content: space-between;
+          }
+
+          .page-content-header {
+              display: flex;
+              justify-content: space-between;
+          }
+
+          .page-content-header h1 {
+              margin: 0;
+          }
+
+          .form-content {
+              display: flex;
+              flex-wrap: nowrap;
+          }
+
+          .form-content h1 {
+              margin-top: 0;
+              font-weight: 400;
+          }
+
+          .from-to-table {
+              table-layout: auto;
+              width: 100%;
+              border-spacing: 3px;
+          }
+
+          .clear-border-spacing {
+              border-spacing: 0 !important;
+              width: 100%;
+          }
+
+          .from-to-table-header {
+              width: 50px;
+              vertical-align: top;
+          }
+
+          .label-input-horizontal {
+              width: 100%;
+          }
+
+          .label-input-horizontal td {
+              min-width: 80px;
+          }
+
+          .label-input-horizontal td.input {
+              width: 100%;
+              background-color: var(--input-color);
+              height: 20px;
+          }
+
+          .label-input-horizontal td .input {
+              width: 100%;
+              background-color: var(--input-color);
+              height: 20px;
+          }
+
+          .label-input-horizontal td.empty-input {
+              width: 100%;
+          }
+
+          .label-input-horizontal td.empty-input::after {
+              content: '';
+              display: block;
+              width: 100%;
+              background-color: var(--input-color);
+              height: 24px;
+          }
+
+          .white-input {
+              background-color: white !important;
+          }
+
+          .postcode-input {
+              width: 20% !important;
+          }
+
+          .country-input {
+              width: 20% !important;
+          }
+
+          .right-label {
+              text-align: right;
+              min-width: 50px !important;
+              padding-right: 5px;
+          }
+
+          .description-of-contents-table {
+              table-layout: auto;
+              width: 100%;
+              text-align: left;
+          }
+
+          .description-of-contents-table tr {
+              vertical-align: top;
+          }
+
+          .description-of-contents-table tr td {
+              padding-right: 10px;
+          }
+
+          .description-of-contents-table tr td:last-of-type {
+              padding-right: 0;
+          }
+
+          .comment-col {
+              width: 100%;
+          }
+
+          .checkbox-label-container {
+              display: flex;
+              flex-wrap: wrap;
+          }
+
+          .checkbox-label {
+              display: flex;
+              flex-wrap: nowrap;
+              align-items: center;
+              margin-right: 10px;
+              min-width: 105px;
+              margin-bottom: 5px;
+          }
+
+          .checkbox-label .checkbox {
+              background-color: var(--input-color);
+              border: 1px solid black;
+              height: 12px;
+              width: 12px;
+          }
+
+          .checkbox-label .checkbox.checked::after {
+              content: '';
+              display: block;
+              background-color: black;
+              height: 8px;
+              width: 8px;
+              margin-left: 2px;
+              margin-top: 2px;
+          }
+
+          .item-id-number {
+              background-color: white;
+              border: 1px dotted black;
+              padding: 5px;
+          }
+
+          .item-id-number .input {
+              background-color: var(--input-color);
+              height: 80px;
+          }
+
+          .commercial-item-number-container {
+              display: flex;
+              flex-wrap: nowrap;
+          }
+
+          .commercial-item-number-table {
+              table-layout: fixed;
+              width: 66%;
+              border: 1px dotted black;
+          }
+
+          .commercial-item-number-table td {
+              width: 50%;
+          }
+
+          .postal-charges-table {
+              width: 33% !important;
+          }
+      </style>
+  </head>
+
+  <body>
+      <div class="page-content">
+          <div class="page-header">
+              <span>BI 2013.05 (okt 15)</span>
+              <span><b>Obs!</b>&nbsp;Se anvisningar p&aring; baksidan</span>
+          </div>
+          <div class="border-separator-lg margin-top-sm"></div>
+          <div class="page-content-header">
+              <h1>
+                  Tulldeklaration
+              </h1>
+              <h1>
+                  CN23
+              </h1>
+          </div>
+          <div class="form-content">
+              <div class="w-50">
+                  <div class="form-header">
+                      <h1>Customs Declaration</h1>
+                      <div><b>PostNord |</b>&nbsp;Sweden</div>
+                      <div><b><i>May be opened officially</i></b></div>
+                      <div class="border-separator-sm margin-top-sm"></div>
+                  </div>
+                  <table class="from-to-table">
+                      <tr>
+                          <td class="from-to-table-header">
+                              <b>From</b>
+                          </td>
+                          <td>
+                              <table>
+                                  <tr class="label-input-horizontal">
+                                      <td>Name</td>
+                                      <td class="input">{{ from.name }}</td>
+                                  </tr>
+                                  <tr class="label-input-horizontal">
+                                      <td>Business</td>
+                                      <td class="input">{{ from.organisation }}</td>
+                                  </tr>
+                                  <tr class="label-input-horizontal">
+                                      <td>Street</td>
+                                      <td class="input">{{ from.street }}</td>
+                                  </tr>
+                                  <tr class="label-input-horizontal">
+                                      <td>Postcode</td>
+                                      <td>
+                                          <table class="clear-border-spacing">
+                                              <tr>
+                                                  <td class="input postcode-input">{{ from.postcode }}</td>
+                                                  <td class="right-label">City</td>
+                                                  <td class="input">{{ from.city }}</td>
+                                              </tr>
+                                          </table>
+                                      </td>
+                                  </tr>
+                                  <tr class="label-input-horizontal">
+                                      <td>Country</td>
+                                      <td>
+                                          <table class="clear-border-spacing">
+                                              <tr>
+                                                  <td class="input country-input">{{ from.country }}</td>
+                                                  <td class="right-label">Phone</td>
+                                                  <td class="input">{{ from.phone }}</td>
+                                              </tr>
+                                          </table>
+                                      </td>
+                                  </tr>
+                              </table>
+                              <table>
+                                  <tr class="label-input-horizontal">
+                                      <td class="nowrap">EORI-/Personal ID number</td>
+                                      <td class="input">{{ from.pid }}</td>
+                                  </tr>
+                              </table>
+                          </td>
+                      </tr>
+                      </tbody>
+                  </table>
+                  <div class="border-separator-lg margin-top-lg"></div>
+                  <table class="from-to-table">
+                      <tr>
+                          <td class="from-to-table-header">
+                              <b>To</b>
+                          </td>
+                          <td>
+                              <table>
+                                  <tr class="label-input-horizontal">
+                                      <td>Name</td>
+                                      <td class="input">{{ to.name }}</td>
+                                  </tr>
+                                  <tr class="label-input-horizontal">
+                                      <td>Business</td>
+                                      <td class="input">{{ to.organisation }}</td>
+                                  </tr>
+                                  <tr class="label-input-horizontal">
+                                      <td>Street</td>
+                                      <td class="input">{{ to.street }}</td>
+                                  </tr>
+                                  <tr class="label-input-horizontal">
+                                      <td>Postcode</td>
+                                      <td>
+                                          <table class="clear-border-spacing">
+                                              <tr>
+                                                  <td class="input postcode-input">{{ to.postcode }}</td>
+                                                  <td class="right-label">City</td>
+                                                  <td class="input">{{ to.city }}</td>
+                                              </tr>
+                                          </table>
+                                      </td>
+                                  </tr>
+                                  <tr class="label-input-horizontal">
+                                      <td>Country</td>
+                                      <td>
+                                          <table class="clear-border-spacing">
+                                              <tr>
+                                                  <td class="input country-input">{{ to.country }}</td>
+                                                  <td class="right-label">Phone</td>
+                                                  <td class="input">{{ to.phone }}</td>
+                                              </tr>
+                                          </table>
+                                      </td>
+                                  </tr>
+                              </table>
+                          </td>
+                      </tr>
+                      </tbody>
+                  </table>
+                  <div class="border-separator-lg margin-top-lg"></div>
+                  <table class="description-of-contents-table">
+                      <tr>
+                          <th>
+                              (2)
+                              <div><b>Detailed description of contents</b></div>
+                          </th>
+                          <td>
+                              (3)
+                              <div>Quantity</div>
+                          </td>
+                          <td>
+                              (4)
+                              <div>Net weight/kg</div>
+                          </td>
+                          <td>
+                              (6)
+                              <div>Value SEK</div>
+                          </td>
+                      </tr>
+                      <tr class="label-input-horizontal">
+                          <td class="input">{{ content[0].description }}</td>
+                          <td class="input">{{ content[0].quantity }}</td>
+                          <td class="input">{{ content[0].weight }}</td>
+                          <td class="input">{{ content[0].value }}</td>
+                      </tr>
+                      <tr class="label-input-horizontal">
+                          <td class="input">{{ content[1].description }}</td>
+                          <td class="input">{{ content[1].quantity }}</td>
+                          <td class="input">{{ content[1].weight }}</td>
+                          <td class="input">{{ content[1].value }}</td>
+                      </tr>
+                      <tr class="label-input-horizontal">
+                          <td class="input">{{ content[2].description }}</td>
+                          <td class="input">{{ content[2].quantity }}</td>
+                          <td class="input">{{ content[2].weight }}</td>
+                          <td class="input">{{ content[2].value }}</td>
+                      </tr>
+                      <tr class="label-input-horizontal">
+                          <td class="input">{{ content[3].description }}</td>
+                          <td class="input">{{ content[3].quantity }}</td>
+                          <td class="input">{{ content[3].weight }}</td>
+                          <td class="input">{{ content[3].value }}</td>
+                      </tr>
+                      <tr>
+                          <th colspan="2">
+                              (11)
+                              <div><b>Category of item</b></div>
+                          </th>
+                          <td>
+                              (5)
+                              <div>Total gross weight</div>
+                          </td>
+                          <td>
+                              (7)
+                              <div>Total value</div>
+                          </td>
+                      </tr>
+                      <tr class="label-input-horizontal">
+                          <td colspan="2">
+                              <div class="checkbox-label-container">
+                                  <div class="checkbox-label">
+                                      <div class="checkbox {% if category.gift %}checked{% endif %}"></div>
+                                      <span>&nbsp;Gift</span>
+                                  </div>
+                                  <div class="checkbox-label">
+                                      <div class="checkbox {% if category.returnedGoods %}checked{% endif %}"></div>
+                                      <span>&nbsp;Returned goods</span>
+                                  </div>
+                                  <div class="checkbox-label">
+                                      <div class="checkbox {% if category.other %}checked{% endif %}"></div>
+                                      <span>&nbsp;Other</span>
+                                  </div>
+                                  <div class="checkbox-label">
+                                      <div class="checkbox {% if category.documents %}checked{% endif %}"></div>
+                                      <span>&nbsp;Documents</span>
+                                  </div>
+                                  <div class="checkbox-label">
+                                      <div class="checkbox {% if category.commercialSample %}checked{% endif %}"></div>
+                                      <span>&nbsp;Commercial sample</span>
+                                  </div>
+                              </div>
+                          </td>
+                          <td>
+                              <div class="input">{{ totalGrossWeight }}</div>
+                          </td>
+                          <td>
+                              <div class="input">{{ totalValue }}</div>
+                          </td>
+                      </tr>
+                      <tr class="label-input-horizontal">
+                          <td colspan="4">
+                              <div class="flex-nowrap">
+                                  <div class="margin-right-lg">Explanation</div>
+                                  <div class="input">{{ category.explanation }}</div>
+                              </div>
+                          </td>
+                      </tr>
+                  </table>
+              </div>
+              <div class="w-50-separator-sm"></div>
+              <div class="w-50">
+                  <div class="item-id-number">
+                      <div>
+                          (1)
+                      </div>
+                      <div>
+                          Item ID number (barcode, if any)
+                      </div>
+                      <div class="input">{{ itemId }}</div>
+                  </div>
+                  <table class="senders-reference-table">
+                      <tr class="label-input-horizontal">
+                          <td class="nowrap">Sender&apos;s Customs reference</td>
+                          <td>
+                              <div class="input">{{ sendersCustomsReference }}</div>
+                          </td>
+                      </tr>
+                      <tr class="label-input-horizontal">
+                          <td><b>Optional (if available)</b> Importer&apos;s reference, tax code/Vat No./importer code
+                          </td>
+                          <td class="vertical-bottom">
+                              <div class="input">{{ importersReference }}</div>
+                          </td>
+                      </tr>
+                      <tr class="label-input-horizontal">
+                          <td class="nowrap">Importer&apos;s phone/fax/e-mail</td>
+                          <td>
+                              <div class="input">{{ importersContact }}</div>
+                          </td>
+                      </tr>
+                  </table>
+                  <div class="commercial-item-number-container">
+                      <table class="table-auto commercial-item-number-table">
+                          <tr>
+                              <th colspan="2">For commercial items only or a content exceed 2000 SEK</th>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <div>(8)</div>
+                                  <div>HS tariff number</div>
+                              </td>
+                              <td>
+                                  <div>(9)</div>
+                                  <div>Country of origin of goods</div>
+                              </td>
+                          </tr>
+                          <tr class="label-input-horizontal">
+                              <td>
+                                  <div class="input">{{ content[0].tariffNumber }}</div>
+                              </td>
+                              <td>
+                                  <div class="input">{{ content[0].originOfGoods }}</div>
+                              </td>
+                          </tr>
+                          <tr class="label-input-horizontal">
+                              <td>
+                                  <div class="input">{{ content[1].tariffNumber }}</div>
+                              </td>
+                              <td>
+                                  <div class="input">{{ content[1].originOfGoods }}</div>
+                              </td>
+                          </tr>
+                          <tr class="label-input-horizontal">
+                              <td>
+                                  <div class="input">{{ content[2].tariffNumber }}</div>
+                              </td>
+                              <td>
+                                  <div class="input">{{ content[2].originOfGoods }}</div>
+                              </td>
+                          </tr>
+                          <tr class="label-input-horizontal">
+                              <td>
+                                  <div class="input">{{ content[3].tariffNumber }}</div>
+                              </td>
+                              <td>
+                                  <div class="input">{{ content[3].originOfGoods }}</div>
+                              </td>
+                          </tr>
+                      </table>
+                      <table class="table-auto postal-charges-table">
+                          <tr>
+                              <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <div>(10)</div>
+                                  <div>Postal charges/Fees</div>
+                              </td>
+                          </tr>
+                          <tr class="label-input-horizontal">
+                              <td>
+                                  <div class="input">{{ postalFees }}</div>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <div class="border-separator-lg margin-top-sm"></div>
+                  <div class="flex-nowrap">
+                      <table class="table-auto">
+                          <tr class="vertical-top">
+                              <td class="comment-col">
+                                  <div>(12)</div>
+                                  <div><b>Comments:</b></div>
+                                  <div>(e.g: goods subject to quarantine, sanitary/phytosanitary inspection or other
+                                      restrictions)</div>
+                              </td>
+                              <td>
+                                  <div>(13)</div>
+                                  <div><b>License number(s)</b></div>
+                              </td>
+                              <td>
+                                  <div>(14)</div>
+                                  <div><b>Certificate number(s)</b></div>
+                              </td>
+                              <td>
+                                  <div>(15)</div>
+                                  <div><b>Invoice number(s)</b></div>
+                              </td>
+
+                          </tr>
+                          <tr class="label-input-horizontal">
+                              <td rowspan="3">
+                                  <div class="input h-80px">{{ comments }}</div>
+                              </td>
+                              <td>
+                                  <div class="input">{{ shipment[0].licenseNumber }}</div>
+                              </td>
+                              <td>
+                                  <div class="input">{{ shipment[0].certificateNumber }}</div>
+                              </td>
+                              <td>
+                                  <div class="input">{{ shipment[0].invoiceNumber }}</div>
+                              </td>
+                          </tr>
+                          <tr class="label-input-horizontal">
+                              <td>
+                                  <div class="input">{{ shipment[1].licenseNumber }}</div>
+                              </td>
+                              <td>
+                                  <div class="input">{{ shipment[1].certificateNumber }}</div>
+                              </td>
+                              <td>
+                                  <div class="input">{{ shipment[1].invoiceNumber }}</div>
+                              </td>
+                          </tr>
+                          <tr class="label-input-horizontal">
+                              <td>
+                                  <div class="input">{{ shipment[2].licenseNumber }}</div>
+                              </td>
+                              <td>
+                                  <div class="input">{{ shipment[2].certificateNumber }}</div>
+                              </td>
+                              <td>
+                                  <div class="input">{{ shipment[2].invoiceNumber }}</div>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <div class="border-separator-lg margin-top-lg"></div>
+                  <div class="flex-nowrap">
+                      <div class="w-33">
+                          <table class="table-auto">
+                              <tr>
+                                  <td>
+                                      <div><b>Office of origin/</b></div>
+                                      <div><b>Date of posting</b></div>
+                                  </td>
+                              </tr>
+                              <tr class="label-input-horizontal">
+                                  <td>
+                                      <div class="input h-80px">
+                                          {{ officeOfOrigin }} /
+                                          {{ dateOfPosting }}
+                                      </div>
+                                  </td>
+                              </tr>
+                          </table>
+                      </div>
+                      <div class="w-50-separator-sm"></div>
+                      <div class="w-66">
+                          <table class="table-fixed">
+                              <tr>
+                                  <td colspan="3">
+                                      <div>(16)</div>
+                                      <div>I certify that the particulars given in this customs declaration are correct
+                                          and that this item does not contain any dangerous article prohibited by
+                                          legislation or by postal or customs regulations.</div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                  <td>&nbsp;</td>
+                              </tr>
+                              <tr class="label-input-horizontal vertical-bottom">
+                                  <td colspan="1">
+                                      <div>Date,</div>
+                                      <div>Sender&apos;s signature</div>
+                                  </td>
+                                  <td colspan="2">
+                                      <div class="input w-100">{{ date }} {{ signature }}</div>
+                                  </td>
+                              </tr>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </body>
+
+  </html>
+  `;
+  const data = {
+    from: {
+      name: "Magnus Testsson",
+      organisation: "Magnus business AB",
+      street: "Teststreet 42",
+      postcode: "42424",
+      city: "Gothenburg",
+      country: "Sweden",
+      phone: "+46742424242",
+      pid: "1991-01-01",
+    },
+    to: {
+      name: "Peter Testsson",
+      organisation: "Peters business AB",
+      street: "Testgaden 1337",
+      postcode: "1337",
+      city: "Oslo",
+      country: "Norge",
+      phone: "0742424242",
+    },
+    content: [
+      {
+        description: "bananas in a box",
+        quantity: "42",
+        weight: "5",
+        value: "500",
+        tariffNumber: "123123123",
+        originOfGoods: "Germany",
+      },
+      {
+        description: "apples in a box",
+        quantity: "42",
+        weight: "5",
+        value: "500",
+        tariffNumber: "123123123",
+        originOfGoods: "Germany",
+      },
+      {
+        description: "pears in a box",
+        quantity: "42",
+        weight: "5",
+        value: "500",
+        tariffNumber: "123123123",
+        originOfGoods: "Germany",
+      },
+      {
+        description: "bunnies in a box",
+        quantity: "42",
+        weight: "5",
+        value: "500",
+        tariffNumber: "123123123",
+        originOfGoods: "Germany",
+      },
+    ],
+    category: {
+      gift: false,
+      returnedGoods: false,
+      other: true,
+      documents: false,
+      commercialSample: false,
+      explanation: "Lots of boxes to deliver",
+    },
+    totalGrossWeight: "20kg",
+    totalValue: "2000",
+    itemId: "123.123.123.42.42.42",
+    sendersCustomsReference: "some reference",
+    importersReference: "bulk boxes",
+    importersContact: "test@papero.io",
+    postalFees: "400kr",
+    comments: "Boxes have been cleaned",
+    shipment: [
+      {
+        licenseNumber: "123321123",
+        certificateNumber: "123123123",
+        invoiceNumber: "123123123",
+      },
+      {
+        licenseNumber: "123321123",
+        certificateNumber: "123123123",
+        invoiceNumber: "123123123",
+      },
+      {
+        licenseNumber: "123321123",
+        certificateNumber: "123123123",
+        invoiceNumber: "123123123",
+      },
+    ],
+    officeOfOrigin: "Papero office",
+    dateOfPosting: "2021-02-24",
+    date: "2021-02-25",
+    signature: "Magnus Testsson",
+  };
+  const searchParams = new URLSearchParams(window.location.search);
+  const userData = JSON.parse(searchParams.get("data"));
+  console.log(userData);
+  const rendered = nunjucks.renderString(page, { ...data, ...userData });
+  document.write(rendered);
+</script>
