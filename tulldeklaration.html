@@ -737,6 +737,6 @@
   `;
   const searchParams = new URLSearchParams(window.location.search);
   const userData = JSON.parse(searchParams.get("data"));
-  const rendered = nunjucks.renderString(page, { ...data, ...userData });
+  const rendered = nunjucks.renderString(page, userData);
   document.write(rendered);
 </script>
