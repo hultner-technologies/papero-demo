@@ -1,0 +1,278 @@
+[
+{
+    "from": {
+        "name": "Magnus Testsson",
+        "organisation": "Magnus business AB",
+        "street": "Teststreet 42",
+        "postcode": "42424",
+        "city": "Gothenburg",
+        "country": "Sweden",
+        "phone": "+46742424242",
+        "pid": "1991-01-01"
+    },
+    "to": {
+        "name": "Peter Testsson",
+        "organisation": "Peters business AB",
+        "street": "Testgaden 1337",
+        "postcode": "1337",
+        "city": "Oslo",
+        "country": "Norge",
+        "phone": "0742424242"
+    },
+    "content": [
+        {
+            "description": "bananas in a box",
+            "quantity": "42",
+            "weight": "5",
+            "value": "500",
+            "tariffNumber": "123123123",
+            "originOfGoods": "Germany"
+        },
+        {
+            "description": "apples in a box",
+            "quantity": "42",
+            "weight": "5",
+            "value": "500",
+            "tariffNumber": "123123123",
+            "originOfGoods": "Germany"
+        },
+        {
+            "description": "pears in a box",
+            "quantity": "42",
+            "weight": "5",
+            "value": "500",
+            "tariffNumber": "123123123",
+            "originOfGoods": "Germany"
+        },
+        {
+            "description": "bunnies in a box",
+            "quantity": "42",
+            "weight": "5",
+            "value": "500",
+            "tariffNumber": "123123123",
+            "originOfGoods": "Germany"
+        }
+    ],
+    "category": {
+        "gift": false,
+        "returnedGoods": false,
+        "other": true,
+        "documents": false,
+        "commercialSample": false,
+        "explanation": "Lots of boxes to deliver"
+    },
+    "totalGrossWeight": "20kg",
+    "totalValue": "2000",
+    "itemId": "123.123.123.42.42.42",
+    "sendersCustomsReference": "some reference",
+    "importersReference": "bulk boxes",
+    "importersContact": "test@papero.io",
+    "postalFees": "400kr",
+    "comments": "Boxes have been cleaned",
+    "shipment": [
+        {
+            "licenseNumber": "123321123",
+            "certificateNumber": "123123123",
+            "invoiceNumber": "123123123"
+        },
+        {
+            "licenseNumber": "123321123",
+            "certificateNumber": "123123123",
+            "invoiceNumber": "123123123"
+        },
+        {
+            "licenseNumber": "123321123",
+            "certificateNumber": "123123123",
+            "invoiceNumber": "123123123"
+        }
+    ],
+    "officeOfOrigin": "Papero office",
+    "dateOfPosting": "2021-02-24",
+    "date": "2021-02-25",
+    "signature": "Magnus Testsson"
+}
+,{
+    "from": {
+        "name": "Test Adamsson",
+        "organisation": "Adams business AB",
+        "street": "Adamsgatan 42",
+        "postcode": "13337",
+        "city": "Malmo",
+        "country": "Sweden",
+        "phone": "+4613371337",
+        "pid": "1889-01-01"
+    },
+    "to": {
+        "name": "Test Fredriksson",
+        "organisation": "Fredriks business AB",
+        "street": "Gadentest 7331",
+        "postcode": "7331",
+        "city": "Oslo",
+        "country": "Norge",
+        "phone": "1742424242"
+    },
+    "content": [
+        {
+            "description": "rabbits",
+            "quantity": "42",
+            "weight": "5",
+            "value": "500",
+            "tariffNumber": "123123123",
+            "originOfGoods": "Germany"
+        },
+        {
+            "description": "gold",
+            "quantity": "42",
+            "weight": "5",
+            "value": "500",
+            "tariffNumber": "123123123",
+            "originOfGoods": "Germany"
+        },
+        {
+            "description": "uranium",
+            "quantity": "42",
+            "weight": "5",
+            "value": "500",
+            "tariffNumber": "123123123",
+            "originOfGoods": "Germany"
+        },
+        {
+            "description": "tesla",
+            "quantity": "42",
+            "weight": "5",
+            "value": "500",
+            "tariffNumber": "123123123",
+            "originOfGoods": "Germany"
+        }
+    ],
+    "category": {
+        "gift": false,
+        "returnedGoods": false,
+        "other": true,
+        "documents": false,
+        "commercialSample": false,
+        "explanation": "this is a test explanation"
+    },
+    "totalGrossWeight": "20kg",
+    "totalValue": "2000",
+    "itemId": "123.123.123.42.42.42",
+    "sendersCustomsReference": "some reference",
+    "importersReference": "bulk boxes",
+    "importersContact": "test@papero.io",
+    "postalFees": "400kr",
+    "comments": "Clean is the packages",
+    "shipment": [
+        {
+            "licenseNumber": "423324423",
+            "certificateNumber": "423423423",
+            "invoiceNumber": "423423423"
+        },
+        {
+            "licenseNumber": "423324423",
+            "certificateNumber": "423423423",
+            "invoiceNumber": "423423423"
+        },
+        {
+            "licenseNumber": "423324423",
+            "certificateNumber": "423423423",
+            "invoiceNumber": "423423423"
+        }
+    ],
+    "officeOfOrigin": "Test office",
+    "dateOfPosting": "2021-02-24",
+    "date": "2021-02-25",
+    "signature": "Testsson Adam"
+}, 
+{
+    "from": {
+        "name": "Banana Mariasson",
+        "organisation": "Marias business AB",
+        "street": "Mariasgatan 32",
+        "postcode": "18881",
+        "city": "Malmo",
+        "country": "Sweden",
+        "phone": "+3618811881",
+        "pid": "1889-01-01"
+    },
+    "to": {
+        "name": "Banana Svensson",
+        "organisation": "Svens business AB",
+        "street": "Gadenfruit 1881",
+        "postcode": "1881",
+        "city": "Oslo",
+        "country": "Norge",
+        "phone": "1132323232"
+    },
+    "content": [
+        {
+            "description": "stones",
+            "quantity": "32",
+            "weight": "5",
+            "value": "500",
+            "tariffNumber": "128128128",
+            "originOfGoods": "Germany"
+        },
+        {
+            "description": "gunpowder",
+            "quantity": "32",
+            "weight": "5",
+            "value": "500",
+            "tariffNumber": "128128128",
+            "originOfGoods": "Germany"
+        },
+        {
+            "description": "flour",
+            "quantity": "32",
+            "weight": "5",
+            "value": "500",
+            "tariffNumber": "128128128",
+            "originOfGoods": "Germany"
+        },
+        {
+            "description": "gum",
+            "quantity": "32",
+            "weight": "5",
+            "value": "500",
+            "tariffNumber": "128128128",
+            "originOfGoods": "Germany"
+        }
+    ],
+    "category": {
+        "gift": false,
+        "returnedGoods": false,
+        "other": true,
+        "documents": false,
+        "commercialSample": false,
+        "explanation": "this is a fruit explanation"
+    },
+    "totalGrossWeight": "20kg",
+    "totalValue": "2000",
+    "itemId": "128.128.128.32.32.32",
+    "sendersCustomsReference": "some reference",
+    "importersReference": "bulk boxes",
+    "importersContact": "fruit@papero.io",
+    "postalFees": "300kr",
+    "comments": "Clean is the packages",
+    "shipment": [
+        {
+            "licenseNumber": "328823328",
+            "certificateNumber": "328328328",
+            "invoiceNumber": "328328328"
+        },
+        {
+            "licenseNumber": "328823328",
+            "certificateNumber": "328328328",
+            "invoiceNumber": "328328328"
+        },
+        {
+            "licenseNumber": "328823328",
+            "certificateNumber": "328328328",
+            "invoiceNumber": "328328328"
+        }
+    ],
+    "officeOfOrigin": "Banana office",
+    "dateOfPosting": "2021-02-23",
+    "date": "2021-02-25",
+    "signature": "Bananasson Maria"
+}
+]
