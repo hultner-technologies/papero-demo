@@ -50,7 +50,6 @@ async def poll_for_pdf(client, job_id, task, progress):
     return pdf_link
 
 
-
 @unsync
 async def handle_post_job(token, resource: str, input_type: str = "url"):
     async with httpx.AsyncClient(
@@ -69,6 +68,7 @@ async def handle_post_job(token, resource: str, input_type: str = "url"):
             pdf = await poll_for_pdf(client, job_id, task, progress)
     return pdf
 
+
 @unsync
 async def handle_post_template_jobs(token, template, data):
     async with httpx.AsyncClient(
@@ -86,13 +86,10 @@ async def handle_post_template_jobs(token, template, data):
                 job_req = await post_template_job(client, template, entry)
                 job_id = job_req.json().get("job_id")
                 jobs.append(poll_for_pdf(client, job_id, task, progress))
-                # jobs.append((task, job_id))
-            # job_req = await job_co
-            
             pdfs = await asyncio.gather(*jobs)
-            # pdf = await poll_for_pdf(client, job_id, task, progress)
     # breakpoint()
     return pdfs
+
 
 @unsync
 async def test():
@@ -151,6 +148,7 @@ def add_job_html(
     echo("Converting PDF to HTML")
     echo(handle_post_job(token, html, "html").result())
 
+
 @cli.command()
 def add_job_template(
     template: str = Argument(..., help="Template to create a PDF from."),
@@ -176,12 +174,7 @@ def add_bulk_job_template(
     """
     data = json.loads(file.read())
     echo("Creating PDFs from templates with given data.")
-    [echo(pdf) for pdf in handle_post_template_jobs(token, template, data).result() ]
-    # pdf_jobs = [handle_post_template_job(token, template, entry) for entry in data]
-    # for pdf_job in pdf_jobs:
-    #     echo(pdf_job.result())
-
-
+    [echo(pdf) for pdf in handle_post_template_jobs(token, template, data).result()]
 
 
 if __name__ == "__main__":
