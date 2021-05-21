@@ -1,0 +1,58 @@
+{
+    "from": {
+        "name": "Magnus Testsson",
+        "organisation": "Magnus business AB",
+        "street": "Teststreet 42",
+        "postcode": "42424",
+        "city": "Gothenburg",
+        "country": "Sweden",
+        "phone": "+46742424242",
+        "pid": "1991-01-01"
+    },
+    "to": {
+        "name": "Peter Testsson",
+        "organisation": "Peters business AB",
+        "street": "Testgaden 1337",
+        "postcode": "1337",
+        "city": "Oslo",
+        "country": "Norge",
+        "phone": "0742424242"
+    },
+    "content": [
+        {
+            "description": "bananas in a box",
+            "quantity": "42",
+            "weight": "5",
+            "value": "500",
+            "tariffNumber": "123123123",
+            "originOfGoods": "Germany"
+        }
+    ],
+    "category": {
+        "gift": false,
+        "returnedGoods": false,
+        "other": true,
+        "documents": false,
+        "commercialSample": false,
+        "explanation": "Lots of boxes to deliver"
+    },
+    "totalGrossWeight": "20kg",
+    "totalValue": "2000",
+    "itemId": "123.123.123.42.42.42",
+    "sendersCustomsReference": "some reference",
+    "importersReference": "bulk boxes",
+    "importersContact": "test@papero.io",
+    "postalFees": "400kr",
+    "comments": "Boxes have been cleaned",
+    "shipment": [
+        {
+            "licenseNumber": "123321123",
+            "certificateNumber": "123123123",
+            "invoiceNumber": "123123123"
+        }
+    ],
+    "officeOfOrigin": "Papero office",
+    "dateOfPosting": "2021-02-24",
+    "date": "2021-02-25",
+    "signature": "Magnus Testsson"
+}
