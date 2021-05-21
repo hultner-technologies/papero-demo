@@ -1,6 +1,8 @@
+import asyncio
 from typing import Any, Dict, Literal, Union
 import json
-import asyncio
+from random import random
+from urllib.parse import quote_plus
 
 from rich.progress import Progress, SpinnerColumn, BarColumn, TimeElapsedColumn
 from typer import Argument, echo, run, Typer, Option, Exit, FileText
@@ -19,7 +21,8 @@ def api_url(suffix: str):
 async def template_url(
     template, data, template_server="https://demo.papero.io/templates"
 ):
-    json_data = json.dumps(data)
+    json_data = quote_plus(json.dumps(data))
+    # echo(json_data)
     return f"{template_server}/{template}?data={json_data}"
 
 
@@ -35,18 +38,29 @@ async def post_job(client: httpx.AsyncClient, resource: str, input_type: str = "
     )
 
 
+
+
 async def poll_for_pdf(client, job_id, task, progress):
     pdf_link = None
     while pdf_link is None:
         # echo("waiting")
         doc_req = await client.get(api_url(f"jobs/{job_id}"))
+        # echo(job_id)
+        # echo(doc_req)
+        # echo(doc_req.url)
+        # echo(doc_req.json())
         if doc_req.status_code == 200:
             try:
                 pdf_link = doc_req.json()["document"]["url"]
-                progress.update(task, completed=100)
             except (KeyError, TypeError):
-                await asyncio.sleep(0.3)
+                # echo(task)
+                wait_timeout = 0.1 + random() * 0.2
+                # print(wait_timeout)
+                await asyncio.sleep(wait_timeout)
                 continue
+    # print("completed")
+    # print(progress)
+    progress.update(task, completed=100, started=True)
     return pdf_link
 
 
@@ -61,10 +75,12 @@ async def handle_post_job(token, resource: str, input_type: str = "url"):
             BarColumn(),
             transient=True,
         ) as progress:
-            task = progress.add_task("Working", start=False)
+            task = progress.add_task("Working", start=True)
             job_req = await post_job(client, resource, input_type)
             # job_req = await job_co
-            job_id = job_req.json().get("job_id")
+            job_id = job_req.json().get("jobId")
+            # echo(job_req.json())
+            # breakpoint()
             pdf = await poll_for_pdf(client, job_id, task, progress)
     return pdf
 
@@ -84,7 +100,9 @@ async def handle_post_template_jobs(token, template, data):
             for entry in data:
                 task = progress.add_task("Working", start=False)
                 job_req = await post_template_job(client, template, entry)
-                job_id = job_req.json().get("job_id")
+                # echo(job_req)
+                # echo(job_req.json())
+                job_id = job_req.json().get("jobId")
                 jobs.append(poll_for_pdf(client, job_id, task, progress))
             pdfs = await asyncio.gather(*jobs)
     # breakpoint()
@@ -120,7 +138,7 @@ def login(
         echo("Invalid password")
         raise Exit(code=1)
     echo("Login succesful, use the following environment variable:")
-    echo(f"PAPERO_API_TOKEN={token_req.json().get('access_token')}")
+    echo(f"export PAPERO_API_TOKEN={token_req.json().get('access_token')}")
 
 
 @cli.command()
