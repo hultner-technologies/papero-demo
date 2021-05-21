@@ -21,30 +21,6 @@
     },
     "content": [
         {
-            "description": "bananas in a box",
-            "quantity": "42",
-            "weight": "5",
-            "value": "500",
-            "tariffNumber": "123123123",
-            "originOfGoods": "Germany"
-        },
-        {
-            "description": "apples in a box",
-            "quantity": "42",
-            "weight": "5",
-            "value": "500",
-            "tariffNumber": "123123123",
-            "originOfGoods": "Germany"
-        },
-        {
-            "description": "pears in a box",
-            "quantity": "42",
-            "weight": "5",
-            "value": "500",
-            "tariffNumber": "123123123",
-            "originOfGoods": "Germany"
-        },
-        {
             "description": "bunnies in a box",
             "quantity": "42",
             "weight": "5",
@@ -70,16 +46,6 @@
     "postalFees": "400kr",
     "comments": "Boxes have been cleaned",
     "shipment": [
-        {
-            "licenseNumber": "123321123",
-            "certificateNumber": "123123123",
-            "invoiceNumber": "123123123"
-        },
-        {
-            "licenseNumber": "123321123",
-            "certificateNumber": "123123123",
-            "invoiceNumber": "123123123"
-        },
         {
             "licenseNumber": "123321123",
             "certificateNumber": "123123123",
@@ -113,30 +79,6 @@
     },
     "content": [
         {
-            "description": "rabbits",
-            "quantity": "42",
-            "weight": "5",
-            "value": "500",
-            "tariffNumber": "123123123",
-            "originOfGoods": "Germany"
-        },
-        {
-            "description": "gold",
-            "quantity": "42",
-            "weight": "5",
-            "value": "500",
-            "tariffNumber": "123123123",
-            "originOfGoods": "Germany"
-        },
-        {
-            "description": "uranium",
-            "quantity": "42",
-            "weight": "5",
-            "value": "500",
-            "tariffNumber": "123123123",
-            "originOfGoods": "Germany"
-        },
-        {
             "description": "tesla",
             "quantity": "42",
             "weight": "5",
@@ -162,16 +104,6 @@
     "postalFees": "400kr",
     "comments": "Clean is the packages",
     "shipment": [
-        {
-            "licenseNumber": "423324423",
-            "certificateNumber": "423423423",
-            "invoiceNumber": "423423423"
-        },
-        {
-            "licenseNumber": "423324423",
-            "certificateNumber": "423423423",
-            "invoiceNumber": "423423423"
-        },
         {
             "licenseNumber": "423324423",
             "certificateNumber": "423423423",
@@ -205,30 +137,6 @@
     },
     "content": [
         {
-            "description": "stones",
-            "quantity": "32",
-            "weight": "5",
-            "value": "500",
-            "tariffNumber": "128128128",
-            "originOfGoods": "Germany"
-        },
-        {
-            "description": "gunpowder",
-            "quantity": "32",
-            "weight": "5",
-            "value": "500",
-            "tariffNumber": "128128128",
-            "originOfGoods": "Germany"
-        },
-        {
-            "description": "flour",
-            "quantity": "32",
-            "weight": "5",
-            "value": "500",
-            "tariffNumber": "128128128",
-            "originOfGoods": "Germany"
-        },
-        {
             "description": "gum",
             "quantity": "32",
             "weight": "5",
@@ -258,21 +166,12 @@
             "licenseNumber": "328823328",
             "certificateNumber": "328328328",
             "invoiceNumber": "328328328"
-        },
-        {
-            "licenseNumber": "328823328",
-            "certificateNumber": "328328328",
-            "invoiceNumber": "328328328"
-        },
-        {
-            "licenseNumber": "328823328",
-            "certificateNumber": "328328328",
-            "invoiceNumber": "328328328"
         }
     ],
     "officeOfOrigin": "Banana office",
     "dateOfPosting": "2021-02-23",
     "date": "2021-02-25",
     "signature": "Bananasson Maria"
-}
+},
+{}
 ]
